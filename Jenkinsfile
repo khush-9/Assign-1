@@ -1,11 +1,11 @@
-pipeline {
+pipeline{
 	agent {
 	label {
 		label 'built-in'
-		cutomWorkspace '/project'
+		customWorkspace '/project'
 		}
 	}
-          srtages {
+          stages {
 		stage ('install-httpd') {
 			steps {
 				sh "yum install httpd -y"
