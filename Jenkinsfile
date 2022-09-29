@@ -1,24 +1,24 @@
 pipeline {
 	agent {
 	label {
-		label 'built-in'
-		cutomWorkspace '/project'
+		label 'slave1'
+		cutomWorkspace '/slave1'
 		}
 	}
           srtages {
 		stage ('install-httpd') {
 			steps {
-				sh "yum install httpd -y"
+				sh "sudo yum install httpd -y"
 				}
 			}
 		stage ('service start') {
                         steps {
-                                sh "service httpd start"
+                                sh "sudo service httpd start"
                                 }
                         }
 		stage ('copy index') {
                         steps {
-                                sh "cp -r /project/index.html /var/www/html"
+                                sh " sudo cp -r /slave1/index.html /var/www/html"
                                 }
                         }
 		}
