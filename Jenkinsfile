@@ -1,24 +1,24 @@
 pipeline{
 	agent {
 	label {
-		label 'built-in'
-		customWorkspace '/project'
+		label 'slave2'
+		customWorkspace '/slave2'
 		}
 	}
           stages {
 		stage ('install-httpd') {
 			steps {
-				sh "yum install httpd -y"
+				sh "sudo yum install httpd -y"
 				}
 			}
 		stage ('service start') {
                         steps {
-                                sh "service httpd start"
+                                sh "sudo service httpd start"
                                 }
                         }
 		stage ('copy index') {
                         steps {
-                                sh "cp -r /project/index.html /var/www/html"
+                                sh " sudo cp -r /slave2/index.html /var/www/html"
                                 }
                         }
 		}
