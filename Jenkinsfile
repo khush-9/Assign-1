@@ -1,11 +1,11 @@
-pipeline {
+pipeline{
 	agent {
 	label {
 		label 'slave1'
-		cutomWorkspace '/slave1'
+		customWorkspace '/slave1'
 		}
 	}
-          srtages {
+          stages {
 		stage ('install-httpd') {
 			steps {
 				sh "sudo yum install httpd -y"
